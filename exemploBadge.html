@@ -14,25 +14,25 @@
 <body>
     <div class="container">
         <div class="d-flex">
-            <div class="">
+            <div class="divBadge">
                 <h1>Exemplo de texto<span class="badge text-bg-secondary">Novo</span></h1>
             </div>
-            <div>
+            <div class="divBadge">
                 <!-- A classe btn define a formatação padrão do botão, a classe btn-primary define a cor do botão como azul -->
                 <button type="button" class="btn btn-primary">
                     Notificação <span class="badge text-bg-secondary">4</span>
                 </button>
             </div>
-            <div>
+            <div class="divBadge">
                 <button type="button" class="btn btn-primary position-relative">
                     Email
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         99+
-                        <span class="visually-hidden">unread messages</span>
+                        <span class="visually-hidden">mensagen não lidas</span>
                     </span>
                 </button>
             </div>
-            <div>
+            <div class="divBadge">
                 <button type="button" class="btn btn-primary position-relative">
                     Perfil
                     <span
@@ -41,12 +41,42 @@
                     </span>
                 </button>
             </div>
+
+            <div class="divBadge">
+                <button id="inboxButton" type="button" class="btn btn-primary position-relative notification-button">
+                  Inbox
+                  <span id="notificationBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    0
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                </button>
+                <button id="sendMessageButton" type="button" class="btn btn-success mt-4">Enviar Mensagem</button>
+              </div>
+
         </div>
     </div>
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
+        <script>
+            // Contador de notificações
+            let notificationCount = 0;
+        
+            // Função para atualizar o badge de notificações
+            function atualizarNotificacao() {
+              notificationCount++;
+              document.getElementById('notificationBadge').textContent = notificationCount;
+            }
+        
+            // Evento de clique no botão "Enviar Mensagem"
+            document.getElementById('sendMessageButton').addEventListener('click', function() {
+              atualizarNotificacao(); // Atualiza a contagem de notificações
+            });
+          </script>
 </body>
 
 </html>
